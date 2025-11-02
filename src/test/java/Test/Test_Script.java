@@ -64,12 +64,21 @@ public class Test_Script {
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
-
+@Test
     public void  LoginWithspecialcharacteryandemptyUserNameandspecialcharacterforpasswordPassword() {
         loginPage.Enter_User_Name("%^&^%$#@%^    ");
         loginPage.Enter_password("%$#@#@#$)*");
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
+
+    @Test
+    public void HelalTest() {
+
+        loginPage.Enter_User_Name("Helal");
+        loginPage.Enter_password("#######");
+        loginPage.Click_login();
+        Assert.assertTrue(true, "Epic sadface: Username and password do not match any user in this service");
     }
 
 
