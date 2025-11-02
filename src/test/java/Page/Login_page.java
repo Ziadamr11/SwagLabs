@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class Login_page {
 
     WebDriver driver;
-    By User_Name_Input = By.id("user-name");
+    By User_Name_Input1 = By.id("user-name");
     By Password_Input = By.id("password");
     By Login_button = By.id("login-button");
 
@@ -14,7 +14,7 @@ public class Login_page {
         this.driver=driver;
     }
     public void Enter_User_Name( String username){
-        driver.findElement(User_Name_Input).sendKeys(username);
+        driver.findElement(User_Name_Input1).sendKeys(username);
     }
     public void Enter_password(String password){
         driver.findElement(Password_Input).sendKeys(password);

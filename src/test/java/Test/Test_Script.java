@@ -68,6 +68,7 @@ public class Test_Script {
     public void  LoginWithspecialcharacteryandemptyUserNameandspecialcharacterforpasswordPassword() {
         loginPage.Enter_User_Name("%^&^%$#@%^    ");
         loginPage.Enter_password("%$#@#@#$)*");
+
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
