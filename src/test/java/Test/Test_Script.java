@@ -90,6 +90,7 @@ public class Test_Script {
     }
 
 
+    @Test
     public void  LoginWithlongUserNameandforpasswordPassword() {
         loginPage.Enter_User_Name("dsdasdsadnsdsakajsldaxsccscscsdljkcbcxjhxakdkhasdkjdjkkhsda");
         loginPage.Enter_password("876789870");
