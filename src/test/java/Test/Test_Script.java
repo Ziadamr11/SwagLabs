@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 public class Test_Script {
@@ -82,7 +81,6 @@ public class Test_Script {
         Assert.assertTrue(true, "Epic sadface: Username and password do not match any user in this service");
     }
 
-
     @Test
     public void  LoginWithNumbersUserNameandnumbersforpasswordPassword() {
         loginPage.Enter_User_Name("546456570");
@@ -94,11 +92,17 @@ public class Test_Script {
     @Test
     public void  LoginWithCharatersUserNameandnumbersforpasswordPassword() {
         loginPage.Enter_User_Name("sgkjfrujid");
+=======
+
+    public void  LoginWithlongUserNameandforpasswordPassword() {
+        loginPage.Enter_User_Name("dsdasdsadnsdsakajsldaxsccscscsdljkcbcxjhxakdkhasdkjdjkkhsda");
         loginPage.Enter_password("876789870");
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
+<<<<<<< HEAD
 
+=======
 }
 
 
