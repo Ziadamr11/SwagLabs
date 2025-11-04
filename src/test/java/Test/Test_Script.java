@@ -82,6 +82,13 @@ public class Test_Script {
     }
 
 
+    @Test
+    public void  LoginWithNumbersUserNameandnumbersforpasswordPassword() {
+        loginPage.Enter_User_Name("546456570");
+        loginPage.Enter_password("876789870");
+        loginPage.Click_login();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
 
 }
 
