@@ -91,6 +91,14 @@ public class Test_Script {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 
+    @Test
+    public void  LoginWithCharatersUserNameandnumbersforpasswordPassword() {
+        loginPage.Enter_User_Name("sgkjfrujid");
+        loginPage.Enter_password("876789870");
+        loginPage.Click_login();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
+
 }
 
 
