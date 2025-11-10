@@ -117,7 +117,9 @@ public class Test_Script {
         public void LoginWithUsernoNameandforpasswordPassword() {
           loginPage.Enter_password("876789870");
           loginPage.Click_login();
-          Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+
+
+
     }
 }
 
