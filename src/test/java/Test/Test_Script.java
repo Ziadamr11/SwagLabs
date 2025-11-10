@@ -13,18 +13,21 @@ import java.time.Duration;
 public class Test_Script {
     WebDriver driver;
     Login_page loginPage;
+
     @BeforeMethod
-    public void precondetiones(){
+    public void precondetiones() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.saucedemo.com/");
-        loginPage =new Login_page(driver);
+        loginPage = new Login_page(driver);
     }
+
     @AfterMethod
-    public void TierDown(){
+    public void TierDown() {
         driver.quit();
     }
+
     @Test
     public void LoginWithValidUserNameandValidPassword() {
         loginPage.Enter_User_Name("standard_user");
@@ -32,6 +35,7 @@ public class Test_Script {
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
+
     @Test
     public void LoginWithInvalidUserNameandvalidPassword() {
         loginPage.Enter_User_Name("ziad123");
@@ -39,6 +43,7 @@ public class Test_Script {
         loginPage.Click_login();
         Assert.assertTrue(driver.findElement(By.xpath("//button[@class=\"error-button\"]")).isDisplayed());
     }
+
     @Test
     public void LoginWiyhValidUsernameInvalidPassword() {
 
@@ -47,8 +52,9 @@ public class Test_Script {
         loginPage.Click_login();
         Assert.assertTrue(true, "Epic sadface: Username and password do not match any user in this service");
     }
+
     @Test
-    public void  LoginWithEmptyUserNameandEmptyPassword() {
+    public void LoginWithEmptyUserNameandEmptyPassword() {
 
         loginPage.Enter_User_Name("        ");
         loginPage.Enter_password("       ");
@@ -57,14 +63,15 @@ public class Test_Script {
     }
 
     @Test
-    public void  LoginWithspecialcharacteryUserNameandspecialcharacterforpasswordPassword() {
+    public void LoginWithspecialcharacteryUserNameandspecialcharacterforpasswordPassword() {
         loginPage.Enter_User_Name("%^&^%$#@%^");
         loginPage.Enter_password("%$#@#@#$)*");
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
-@Test
-    public void  LoginWithspecialcharacteryandemptyUserNameandspecialcharacterforpasswordPassword() {
+
+    @Test
+    public void LoginWithspecialcharacteryandemptyUserNameandspecialcharacterforpasswordPassword() {
         loginPage.Enter_User_Name("%^&^%$#@%^    ");
         loginPage.Enter_password("%$#@#@#$)*");
 
@@ -82,13 +89,20 @@ public class Test_Script {
     }
 
     @Test
-    public void  LoginWithNumbersUserNameandnumbersforpasswordPassword() {
+    public void LoginWithNumbersUserNameandnumbersforpasswordPassword() {
         loginPage.Enter_User_Name("546456570");
         loginPage.Enter_password("876789870");
         loginPage.Click_login();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 
+        @Test
+        public void LoginWithlongUserNameandforpasswordPassword() {
+            loginPage.Enter_User_Name("dsdasdsadnsdsakajsldaxsccscscsdljkcbcxjhxakdkhasdkjdjkkhsda");
+            loginPage.Enter_password("876789870");
+            loginPage.Click_login();
+            Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+        }
 
     @Test
     public void  LoginWithlongUserNameandforpasswordPassword() {
@@ -97,6 +111,13 @@ public class Test_Script {
         loginPage.Click_login();
         Assert.assertTrue(driver.findElement(By.id("#user-name")).isDisplayed());
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+    }
+
+        @Test
+        public void LoginWithUsernoNameandforpasswordPassword() {
+          loginPage.Enter_password("876789870");
+          loginPage.Click_login();
+          Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 }
 
