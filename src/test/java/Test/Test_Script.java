@@ -95,6 +95,7 @@ public class Test_Script {
         loginPage.Enter_User_Name("dsdasdsadnsdsakajsldaxsccscscsdljkcbcxjhxakdkhasdkjdjkkhsda");
         loginPage.Enter_password("876789870");
         loginPage.Click_login();
+        Assert.assertTrue(driver.findElement(By.id("#user-name")).isDisplayed());
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
     }
 }
