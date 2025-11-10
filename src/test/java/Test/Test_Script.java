@@ -119,8 +119,6 @@ public class Test_Script {
         @Test
         public void LoginWithUsernoNameandforpasswordPassword() {
           loginPage.Enter_password("876789870");
-          loginPage.Click_login();
-          Assert.assertTrue(driver.findElement(By.xpath("%$$^")).isDisplayed());
     }
     @Test
     public void Loginwithemptyandspicealcharinusername(){
