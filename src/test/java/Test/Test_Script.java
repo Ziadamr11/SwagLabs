@@ -4,6 +4,8 @@ import Page.Login_page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,6 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class Test_Script {
+    private static final Logger log = LoggerFactory.getLogger(Test_Script.class);
     WebDriver driver;
     Login_page loginPage;
 
@@ -118,6 +121,13 @@ public class Test_Script {
           loginPage.Enter_password("876789870");
           loginPage.Click_login();
           Assert.assertTrue(driver.findElement(By.xpath("%$$^")).isDisplayed());
+    }
+    @Test
+    public void Loginwithemptyandspicealcharinusername(){
+     loginPage.Enter_User_Name("              #%$%$%^$");
+     loginPage.Enter_password("secret_sauce");
+     Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/");
+     Assert.assertTrue(driver.findElement(By.id("user-name")).isDisplayed());
     }
 }
 
